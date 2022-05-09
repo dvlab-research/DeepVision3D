@@ -13,7 +13,7 @@ between backbones and heads. `(*)` means the improvement compared to the model w
 ### ScanNet Semantic Segmentation Model
 |                                             |Backbone| mIoU | mAcc | allAcc | download
 |---------------------------------------------|:----------|:-------:|:---------:|:---------:|:---------:|
-| [EQNet](config/eqnet_scannet.yaml) | SparseConvNet | 75.2 | 82.8 | 91.1 | [model](https://drive.google.com/file/d/1152aLDOhoLff5EEMzW2cj0Z1vK0FpXB6/view?usp=sharing) |
+| [EQNet](config/eqnet_scannet.yaml) | SparseConvNet | 75.1 (+2.2) | 82.7 (+1.9) | 91.1 (+0.7) | [model](https://drive.google.com/file/d/1152aLDOhoLff5EEMzW2cj0Z1vK0FpXB6/view?usp=sharing) |
 
 ### S3DIS Semantic Segmentation Model
 To be released soon.

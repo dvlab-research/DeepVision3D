@@ -18,6 +18,7 @@ def get_parser():
     parser.add_argument('--config', type=str, default='config/eqnet_scannet.yaml', help='path to config file')
 
     parser.add_argument('--pretrain', type=str, default='', help='path to pretrain model')
+    parser.add_argument('--fix_seed', type=bool, default=False, help='whether fix random seed during testing.')
 
     parser.add_argument('--local_rank', type=int, default=0, help='local rank for distributed training')
 
@@ -60,6 +61,12 @@ def init():
     logger = get_logger(cfg)
 
     logger.info(cfg)
+
+    if cfg.fix_seed:
+        random.seed(cfg.manual_seed)
+        np.random.seed(cfg.manual_seed)
+        torch.manual_seed(cfg.manual_seed)
+        torch.cuda.manual_seed_all(cfg.manual_seed)
 
 
 def test(model, model_fn, dataset, epoch):
