@@ -1,0 +1,34 @@
+SUPPORT_FEATURE_PROCESSOR:
+    MAX_VALID_NUM: 300000
+    NAME: IDENTITY_PROCESSOR
+    FEATURES_SOURCE: [ 'x_conv7', 'x_conv6', 'x_conv5', 'x_conv4', 'x_conv3', 'x_conv2' ]
+    INPUT_CHANNELS: [224, 192, 160, 128, 96, 64]
+    TARGET_CHANNEL: [224, 192, 160, 128, 96, 64]
+
+# q-decoder num in each q-net
+NUM_Q_LAYERS: 3
+
+# q-decoder & q-encoder layer function.
+Q_DECODER_LAYER_TYPE: TransformerDecoderLayer
+Q_ENCODER_LAYER_TYPE: TransformerEncoderLayer
+
+# attention setting in q-encoder and q-decoder layer.
+Q_HEAD_PER_LEVEL: 8
+Q_DIM_FEEDFORWARD_PER_LEVEL: 512
+Q_DROPOUT_PER_LEVEL: 0.1
+Q_LOCAL_SIZE_PER_LEVEL: 32  # knn size.
+
+# attention & crpe version.
+Q_VERSION: v2
+
+# define rpe.
+RPE_TYPE: RPE
+RPE_CONFIG:
+    POINT_CLOUD_RANGE: [0, 0, 0, 20, 20, 10]
+    QUANTIZE_SIZE: 0.005
+
+# output channel
+AUX_LOSS_SUPP_TYPE: layer-wise-supp
+AUX_LOSS_CHANNEL: 64
+MERGING_MLP: [64]
+Q_TARGET_CHANNEL: 32

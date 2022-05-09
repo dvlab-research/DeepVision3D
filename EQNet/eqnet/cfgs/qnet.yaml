@@ -1,0 +1,32 @@
+SUPPORT_FEATURE_PROCESSOR:
+    MAX_VALID_NUM: 100000
+    NAME: MLP_PROCESSOR
+    TARGET_CHANNEL: 192
+    FEATURES_SOURCE: ['xyz_output']
+    INPUT_CHANNELS: [128]
+
+# q-decoder num in each q-net
+NUM_Q_LAYERS: 3
+
+# q-decoder & q-encoder layer function.
+Q_DECODER_LAYER_TYPE: TransformerDecoderLayer
+Q_ENCODER_LAYER_TYPE: TransformerEncoderLayer
+
+# attention setting in q-encoder and q-decoder layer.
+Q_HEAD_PER_LEVEL: 4
+Q_DIM_FEEDFORWARD_PER_LEVEL: 512
+Q_DROPOUT_PER_LEVEL: 0.1
+Q_LOCAL_SIZE_PER_LEVEL: 32  # knn size.
+
+# attention & crpe version.
+Q_VERSION: v2
+
+# define crpe.
+CRPE_CONFIG:
+    POINT_CLOUD_RANGE: [0, -40, -3, 70.4, 40, 1]
+    QUANTIZE_SIZE: 0.1
+
+# output channel
+AUX_LOSS_CHANNEL: 64
+MERGING_MLP: [256]
+Q_TARGET_CHANNEL: 128

@@ -1,0 +1,108 @@
+task: train
+manual_seed: 123
+
+data_root: data
+dataset: scannetv2
+filename_suffix: .pth
+
+cache: True
+
+input_channel: 3
+classes: 20
+ignore_label: -100
+
+scale: 50   # voxel_size = 1 / scale, scale 50(2cm)
+full_scale: [128, 512]
+max_npoint: 200000
+
+train_flip: True
+train_rot: True
+train_jit: True
+train_elas: True
+train_crop: True
+val_crop: False
+
+use_coords: True
+
+BACKBONE:
+  NAME: EQVoxelBackbone
+  INIT_CONV_CFG:
+    conv_type: subm
+    out_channels: 32
+    kernel_size: 3
+    indice_key: init_conv
+    stride: 1
+    padding: 1
+  BACKBONE_CFG:
+    block_types: [
+        [ 'sparse_res_block', 'sparse_res_block'],
+        [ 'default_block', 'sparse_res_block', 'sparse_res_block'],
+        [ 'default_block', 'sparse_res_block', 'sparse_res_block'],
+        [ 'default_block', 'sparse_res_block', 'sparse_res_block'],
+        [ 'default_block', 'sparse_res_block', 'sparse_res_block'],
+        [ 'default_block', 'sparse_res_block', 'sparse_res_block'],
+        [ 'default_block', 'sparse_res_block', 'sparse_res_block']
+      ]
+    out_channels: [32, 64, 96, 128, 160, 192, 224]
+    conv_type: ['subm', 'spconv', 'spconv', 'spconv', 'spconv', 'spconv', 'spconv']
+    kernel_size: [3, 2, 2, 3, 3, 3, 3]
+    stride: [1, 2, 2, 2, 2, 2, 2]
+    padding: [1, 1, 1, 1, 1, 1, 1]
+
+NECK:
+  NAME: QNetNeck
+
+  SUPPORT_CFG:
+    PREPROCESSING_FUNC: _preprocess_voxel_support_features
+    SUPPORT_KEYS: [ 'x_conv7', 'x_conv6', 'x_conv5', 'x_conv4', 'x_conv3', 'x_conv2' ]
+
+  QUERY_POSITION_CFG:
+    SELECTION_FUNCTION: _get_keypoints_query_position
+    KEYPOINTS_SRC: raw_points
+    KEYPOINTS_SAMPLE_METHOD: RS
+    KEYPOINTS_NUM: 10000
+
+  # /path/to/your/qnet.yaml
+  QNET_CFG_FILE: config/qnet.yaml
+
+  QUERY_FEATURE_CFG:
+    POSTPROCESSING_FUNC: _process_keypoints_query_features
+
+AUX_SUPP_CFG:
+  MLP: [64, 32]
+
+
+batch_size: 8
+epochs: 600
+train_workers: 2
+optim: AdamW
+lr: 0.001
+momentum: 0.9
+weight_decay: 0.1
+save_freq: 16
+loss_weight: [1.0, 1.0]
+
+validation: True
+
+sync_bn: True
+
+scheduler: OneCycleLR
+scheduler_epoch: True
+# OneCycleLR
+oc_max_lr: 0.001
+oc_pct_start: 0.3
+oc_anneal_strategy: cos
+oc_div_factor: 100.0
+oc_final_div_factor: 10000.0
+
+# TEST
+split: val
+test_reps: 6
+test_epoch: 600
+test_workers: 16
+eval: True
+save_semantic: False
+
+
+
+

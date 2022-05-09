@@ -1,0 +1,36 @@
+# Some optimizer arguments.
+# no final classification head, just a voting module.
+optimizer: AdamW
+decay_rate: 0.01
+
+BACKBONE:
+    NAME: EQPointNet2Backbone
+    SA_CONFIG:
+        NPOINTS: [512, 128, 32]
+        RADIUS: [[0.2], [0.4], [0.6]]
+        NSAMPLE: [[32], [64], [32]]
+        MLPS: [[[64, 64, 128]],
+               [[128, 128, 256]],
+               [[256, 256, 512]],]
+
+NECK:
+    NAME: QNetNeck
+
+    SUPPORT_CFG:
+        PREPROCESSING_FUNC: _preprocess_point_support_features
+        SUPPORT_KEYS: [ 'l0', 'l1', 'l2' ]
+
+    QUERY_POSITION_CFG:
+        SELECTION_FUNCTION: _get_keypoints_query_position
+        KEYPOINTS_SRC: raw_points
+        KEYPOINTS_SAMPLE_METHOD: FPS
+        KEYPOINTS_NUM: 16
+
+    # /path/to/your/qnet.yaml
+    QNET_CFG_FILE: config/qnet.yaml
+
+    QUERY_FEATURE_CFG:
+        POSTPROCESSING_FUNC: _process_keypoints_query_features
+
+AUX_SUPP_CFG:
+    MLP: [192, 256, 256]

@@ -1,0 +1,12 @@
+__pycache__
+build
+egg-info
+dist
+*.idea/
+*.pth
+*.pkl
+*.zip
+*.bin
+
+# ignore some experimental configs.
+main.py
