@@ -15,7 +15,7 @@ It also maintains the latest 3D research progresses from our lab.
   * `E.g. 1:` A point-based backbone can be applied on voxel-based detector, SECOND ([model](OpenPCDet/tools/cfgs/kitti_models/eq_paradigm/ptbased_backbone/second.yaml)); 
   * `E.g. 2:` A voxel-based backbone can be applied on point-based detector, PointRCNN ([model](OpenPCDet/tools/cfgs/kitti_models/eq_paradigm/vxbased_backbone/pointrcnn.yaml));
 * It maintains the official implementation of research progresses on understanding point cloud from our lab:
-  * A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252.pdf), [supp](https://drive.google.com/file/d/1fEi-_OmyDuu4ToA7LUBd0MRKanXmIHnY/view?usp=sharing))
+  * A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252v3.pdf), [supp](https://drive.google.com/file/d/1fEi-_OmyDuu4ToA7LUBd0MRKanXmIHnY/view?usp=sharing))
   * (To be merged) Stratified Transformer for 3D Point Cloud Segmentation ([paper](https://arxiv.org/pdf/2203.14508.pdf))
   * (To be merged) Focal Sparse Convolutional Networks for 3D Object Detection ([paper](https://arxiv.org/pdf/2204.12463.pdf))
   * (To be merged) Voxel Field Fusion for 3D Object Detection

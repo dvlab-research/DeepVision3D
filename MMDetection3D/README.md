@@ -3,7 +3,7 @@
 This repo contains the code and configuration files for indoor object detection.
 
 ## Related Papers
-* A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252.pdf))
+* A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252v3.pdf))
 
 ## Acknowledgements
 * This implementation heavily relies on [MMDetection3D](https://github.com/open-mmlab/mmdetection3d/tree/master/data). We thank the MMDetection3D team for providing such a well-organized codebase.

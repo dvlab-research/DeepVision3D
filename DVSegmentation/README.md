@@ -4,7 +4,7 @@ This repo contains the code and configuration files for point cloud semantic seg
 
 
 ## Related Papers
-* A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252.pdf))
+* A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252v3.pdf))
 
 ## Results and Models
 `Note.` All models below are trained with 8 1080TI GPU, follow EQ-Paradigm, and use a [Q-Net](../EQNet/eqnet/models/query_producer/qnet.py) to enable a free combination

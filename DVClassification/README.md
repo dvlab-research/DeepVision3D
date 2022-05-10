@@ -4,7 +4,7 @@ This repo contains the code and configuration files for shape classification.
 
 
 ## Related Papers
-* A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252.pdf))
+* A Unified Query-based Paradigm for Point Cloud Understanding ([paper](https://arxiv.org/pdf/2203.01252v3.pdf))
 
 ## Acknowledgements
 * This implementation is modified from [Pytorch_PointNet++](https://github.com/yanx27/Pointnet_Pointnet2_pytorch). We thank the author for providing such a well-organized codebase.
