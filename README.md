@@ -45,10 +45,10 @@ To reproduce our result, please refer to:
 If you find our work useful in your research, please consider citing:
 ```
 @misc{Yang2022deepvision3d,
-  author =       {Zetong Yang and Li Jiang and others contributors},
-  title =        {{DeepVision3D}: A Toolbox for Point Cloud High-level Understanding},
+  author       = {Zetong Yang and Li Jiang and others contributors},
+  title        = {{DeepVision3D}: A Toolbox for Point Cloud High-level Understanding},
   howpublished = {\url{https://github.com/dvlab-research/DeepVision3D}},
-  year =         {2022}
+  year         = {2022}
 }
 ```
 
@@ -58,7 +58,7 @@ and relevant publications:
   author    = {Zetong Yang and Li Jiang and Yanan Sun and Bernt Schiele and Jiaya Jia},
   title     = {A Unified Query-based Paradigm for Point Cloud Understanding},
   booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  year      = {2022},
+  year      = {2022}
 }
 ```
 
