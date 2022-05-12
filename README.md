@@ -54,10 +54,10 @@ If you find our work useful in your research, please consider citing:
 
 and relevant publications:
 ```
-@article{Yang2022eqparadigm,
-  author    = {Zetong Yang and Li Jiang and Yanan Sun and Bernt Schiele and Jiaya Jia}
+@inproceedings{Yang2022eqparadigm,
+  author    = {Zetong Yang and Li Jiang and Yanan Sun and Bernt Schiele and Jiaya Jia},
   title     = {A Unified Query-based Paradigm for Point Cloud Understanding},
-  journal   = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
   year      = {2022},
 }
 ```
