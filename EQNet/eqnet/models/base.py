@@ -6,14 +6,17 @@ The basic function for all modules defined in:
 """
 
 from torch import nn
-
-
-from eqnet.utils.config import merge_new_config
+from eqnet.utils.config import cfg, cfg_from_yaml_file, merge_new_config
 
 
 class BasicEQModules(nn.Module):
     def __init__(self, model_cfg, adapt_model_cfg):
         super().__init__()
+        if isinstance(model_cfg, str):
+            # input a configure file.
+            cfg_from_yaml_file(model_cfg, cfg)
+            model_cfg = cfg
+
         model_cfg = merge_new_config(model_cfg, adapt_model_cfg)
         self.model_cfg = model_cfg
 
